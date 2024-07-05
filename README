@@ -1,0 +1,10 @@
+INSTALACIÓN--
+backend: 
+npm mongoose
+npm express
+nom dotenv
+npm cors
+npm react-hot-toast(Add beautiful notifications to your React app with react-hot-toast)
+npm bcrypt
+npm i jsonwebtoken
+npm i cookie-parser/// cookie parser middleware function using the given secret and options
