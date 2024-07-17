@@ -1,24 +1,35 @@
 const express = require("express");
-const dotenv = require("dotenv").config();
+const dotenv = require("dotenv");
 const cors = require("cors");
-const {mongoose} = require ('mongoose')
-const cookieParser= require('cookie-parser')
+const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 const app = express();
 
-//database conexión
-mongoose.connect(process.env.MONGO_URL)
-.then(()=> console.log('Mongo Connected'))
-.catch((err) => console.log('Mongo not connected', err))
-
+//variables de entorno
+dotenv.config();
 
 //middleware
-app.use(express.json())
-app.use(cookieParser())
-app.use(express.urlencoded({extended:false}))
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
 
+//connect cors(back&front)
+app.use(
+  cors({
+    credentials: true,
+    origin: "http://localhost:5173",
+  })
+);
 
-app.use('/', require('./routes/authRoutes'))
+//database conexión
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => console.log("Mongo Connected"))
+  .catch((err) => console.log("Mongo not connected", err));
 
+//Routes
+app.use("/user", require("./routes/authRoutes"));
+app.use("/services", require("./routes/serviceRoutes"));
 
-const port= 8000;
-app.listen(port, ()=> console.log(`Server running on port ${port}`))
+const port = 8000;
+app.listen(port, () => console.log(`Server running on port ${port}`));

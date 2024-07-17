@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
+//user Shemas
 const userSchema = new Schema({
   name: String,
   email: { type: String, unique: true },
@@ -9,4 +10,6 @@ const userSchema = new Schema({
 
 const UserModel = mongoose.model("User", userSchema);
 
-module.exports = UserModel;
+
+
+module.exports = UserModel
