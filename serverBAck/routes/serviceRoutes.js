@@ -5,6 +5,8 @@ const {
   serviceTest,
   getAllServices,
   createServices,
+  deleteService,
+  editService
 } = require("../controllers/serviceController");
 
 
@@ -13,5 +15,7 @@ const {
 router.get("/", serviceTest);  
 router.get("/all", getAllServices); 
 router.post("/create", createServices);
+router.delete('/:id', deleteService)
+router.put('/:id', editService)
 
 module.exports = router;

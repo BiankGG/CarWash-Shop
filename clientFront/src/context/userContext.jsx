@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
 
+
 //backendURL--
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true;
@@ -10,6 +11,7 @@ export const UserContext = createContext({});
 
 export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null);
+  
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -25,8 +27,19 @@ export function UserContextProvider({ children }) {
     fetchUserProfile();
   }, []);
 
+  //Logout 
+  const logout = async () => {
+    try {
+      await axios.post("/user/logout");
+      setUser(null); 
+     
+    } catch (error) {
+      console.error("error logout:", error);
+    }
+  };
+
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser, logout }}>
       {children}
     </UserContext.Provider>
   );

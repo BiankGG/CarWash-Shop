@@ -14,11 +14,11 @@ const registerUser = async (req, res) => {
       return res.json({ error: "Name is required" });
     }
     if (!password || password.length < 8) {
-      return res.json({ error: "Password is required and should be at least 8 characters long" });
+      return res.json({ error: " should be at least 8 characters long" });
     }
     const exist = await User.findOne({ email });
     if (exist) {
-      return res.json({ error: "Email is taken already" });
+      return res.json({ error: "email is used" });
     }
     const hashedPassword = await hashPassword(password, 10);
     const user = await User.create({ name, email, password: hashedPassword });
@@ -55,6 +55,12 @@ const loginUser = async (req, res) => {
   }
 };
 
+//Logout endpoint
+const logoutUser = (req, res) => {
+  res.clearCookie("token");
+  res.json({ message: "Logout successful" });
+};
+
 // Get profile endpoint
 const getProfile = (req, res) => {
   const { token } = req.cookies;
@@ -71,9 +77,11 @@ const getProfile = (req, res) => {
   }
 };
 
+
 module.exports = {
   test,
   registerUser,
   loginUser,
   getProfile,
+  logoutUser,
 };

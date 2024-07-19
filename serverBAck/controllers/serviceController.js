@@ -17,19 +17,49 @@ const getAllServices = async (req, res) => {
 
 //create each service
 const createServices = async (req, res) => {
-  const { nombre, descripcion, precio } = req.body;
+  const { imagen, nombre, descripcion, precio } = req.body;
   try {
     const newService = new Service({
+      imagen,
       nombre,
       descripcion,
       precio,
     });
 
     const savedService = await newService.save();
-    console.log(savedService)
+    console.log(savedService);
     res.status(201).json(savedService);
   } catch (error) {
-    console.error("Error creating service:", error);
+    console.error("error creating service:", error);
+  }
+};
+
+//Delete service findByIdDelete(id)
+const deleteService = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedService = await Service.findByIdAndDelete(id);
+    if (!deleteService) {
+      return res.status(404).json({ message: "service not found" });
+    }
+    res.status(200).json({ message: "service deleted" });
+  } catch (error) {
+    console.error("error deleting:", error);
+  }
+};
+
+//Edit service put/:id findByIdAndUpdate
+const editService = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updates = req.body;
+    const editedServices = await Service.findByIdAndUpdate(id, updates, { new: true });
+    if (!editedServices) {
+      return res.status(404).json({ message: "service not found" });
+    }
+    res.status(200).json({ message: "service edited", editedServices });
+  } catch (error) {
+    console.error("Error edited:", error);
   }
 };
 
@@ -37,4 +67,6 @@ module.exports = {
   serviceTest,
   getAllServices,
   createServices,
+  deleteService,
+  editService
 };

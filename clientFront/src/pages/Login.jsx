@@ -21,11 +21,11 @@ export default function Login() {
      if(data.error){
       toast.error(data.error)
      }else{
-      setData({email:'', password:''}); //reset form, empty object
+      setData({email:'', password:''}); 
       navigate('/Profile')
      }
    } catch (error) {
-    toast.error('Error al iniciar sesión. Por favor, intenta de nuevo.');
+    toast.error('error signing in. Por favor, Please try again.');
    
     
    }
@@ -34,7 +34,7 @@ export default function Login() {
   return (
     <div className=" h-screen bg-no-repeat bg-cover bg-[url('https://img.freepik.com/fotos-premium/lavado-autos-espuma-colores-generada-ia_201606-7176.jpg')] opacity-90 flex justify-center items-center w-full">
  <form onSubmit={loginUser} className="bg-white p-8 rounded-lg shadow-lg">
-    <h1 className="text-center text-5xl font-semibold text-white mb-8">Login</h1>
+    <h1 className="text-center text-5xl font-semibold mb-8">Login</h1>
     <div className="mt-4">
     <label className="text-white font-extrabold text-2xl" htmlFor="email">Email</label>
       <input

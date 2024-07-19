@@ -45,13 +45,15 @@ Historial
 
 Diseño de API:
 Endpoint:
-
+-----services
 Post/register ----Registro de nuevos usuarios
 Post/login    ----Autenticación de usuarios
 Get/Profile   ----Obtener detalles del perfil del usuario
-Get/all   ---Obtener lista de servicios de lavado disponibles
+---------services
+Get/Service/all   ---Obtener lista de servicios de lavado disponibles
 POST/Service/create-- crear la lista
-Post/Horario   ----- Programar un lavado de coche    
+POST/Service/:id-- Borrar lista 
+--------reviews
 Post/Reviews/:id   -----Crear comentario para lavado
 Get/Reviews/wash/:wash_id----Obtener todos los comentarios asociados a un lavado específico
 Put/Reviews/:id ----  Actualizar un comentario existente por su ID

@@ -1,10 +1,13 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
 export default function Home() {
+
+
   return (
     <>
       <div className="container mx-auto px-4 py-8 pt-20 ">
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 ">
           <img
             src="https://wallpapercave.com/wp/wp7478747.jpg"
             className="w-full rounded-full object-cover "
@@ -19,21 +22,19 @@ export default function Home() {
           />
         </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-12 mt-24 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-28 px-4">
           <div className="bg-white bg-opacity-30 rounded-lg shadow-md overflow-hidden">
             <img
               src="https://d2wvwvig0d1mx7.cloudfront.net/data/org/7857/media/img/cache/900x0/2001945_900x0.png"
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h2 className="text-xl font-bold mb-2">Basic Exterior Wash</h2>
-              <h3 className="text-l font-bold mb-2">
-                Using premium quality soap
-              </h3>
+              <h2 className="text-xl font-bold mb-2">Bright & Shine</h2>
+              <h3 className="text-l font-bold mb-2">Basic Exterior Wash</h3>
             </div>
-            <button className="mt-auto py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-purple-800 md:py-4 md:text-lg md:px-10">
+            <Link to="/services" className="text-gray-900  bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg ">
               Description/Details
-            </button>
+            </Link>
           </div>
           <div className="bg-white bg-opacity-30 rounded-lg shadow-md overflow-hidden">
             <img
@@ -41,33 +42,27 @@ export default function Home() {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h2 className="text-xl font-bold mb-2">
-                Complete Exterior Detail
-              </h2>
+              <h2 className="text-xl font-bold mb-2">Supreme Clean</h2>
               <h3 className="text-l font-bold mb-2">
-                hand wash using premium quality soap and dry using non scratch
-                drying towels
+                Complete Exterior Detail
               </h3>
             </div>
-            <button className="mt-auto py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-purple-800 md:py-4 md:text-lg md:px-10">
+            <Link to="/services" className="text-gray-900  bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg ">
               Description/Details
-            </button>
+            </Link>
           </div>
-          <div className="bg-white bg-opacity-30 rounded-lg shadow-md overflow-hidden">
+          <div className="bg-white  bg-opacity-30 rounded-lg shadow-md overflow-hidden">
             <img
               src="https://as2.ftcdn.net/v2/jpg/04/57/93/11/1000_F_457931129_U3aF91492XzrYbEoNXnnq8gPnhbZfula.jpg"
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h2 className="text-xl font-bold mb-2">Rims Cleaner </h2>
-              <h3 className="text-l font-bold mb-2">
-                Professional rim cleaning service using premium soaps and
-                brushes for optimal results
-              </h3>
+              <h2 className="text-xl font-bold mb-2">Sparkle Wheels </h2>
+              <h3 className="text-l font-bold mb-2">Rims Cleaner</h3>
             </div>
-            <button className="mb-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-purple-800 md:py-4 md:text-lg md:px-10">
+            <Link to="/services" className="text-gray-900  bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg ">
               Description/Details
-            </button>
+            </Link>
           </div>
           <div className="bg-white bg-opacity-30 rounded-lg shadow-md overflow-hidden">
             <img
@@ -75,12 +70,12 @@ export default function Home() {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h2 className="text-xl font-bold mb-2">Basic Interior Clean</h2>
-              <h3 className="text-l font-bold mb-2">Vacuum Interior</h3>
+              <h2 className="text-xl font-bold mb-2">Fresh Interior</h2>
+              <h3 className="text-l font-bold mb-2">Basic Interior Clean</h3>
             </div>
-            <button className=" mb-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-purple-800 md:py-4 md:text-lg md:px-10">
+            <Link to="/services" className="text-gray-900  bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg ">
               Description/Details
-            </button>
+            </Link>
           </div>
           <div className="bg-white bg-opacity-30 rounded-lg shadow-md overflow-hidden">
             <img
@@ -88,17 +83,14 @@ export default function Home() {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h2 className="text-xl font-bold mb-2">
-                Intensive Interior Detail
-              </h2>
+              <h2 className="text-xl font-bold mb-2">Deep Clean Deluxe</h2>
               <h3 className="text-l font-bold mb-2">
-                Intensive Interior Detail for moderate to heavily soiled
-                interiors
+                Intensive Interior Detail
               </h3>
             </div>
-            <button className="mb-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-purple-800 md:py-4 md:text-lg md:px-10">
+            <Link to="/services" className="text-gray-900  bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg ">
               Description/Details
-            </button>
+            </Link>
           </div>
           <div className="bg-white bg-opacity-30 rounded-lg shadow-md overflow-hidden">
             <img
@@ -106,16 +98,14 @@ export default function Home() {
               className="w-full h-48 object-cover"
             />
             <div className="p-4">
-              <h2 className="text-xl font-bold mb-2">
-                Complete Interior/Exterior Detail
-              </h2>
+              <h2 className="text-xl font-bold mb-2">Total Clean Care</h2>
               <h3 className="text-l font-bold mb-2">
-                Complete Interior & Exterior Detail
+                Complete Interior/Exterior Detail
               </h3>
             </div>
-            <button className="mb-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-purple-800 md:py-4 md:text-lg md:px-10">
+            <Link to="/services" className="text-gray-900  bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg ">
               Description/Details
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -34,7 +34,7 @@ export default function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen ">
+    <div className="flex items-center justify-center h-screen pt-32">
       <form onSubmit={registerUser} className="w-full max-w-md">
         <h1 className="text-center text-5xl font-semibold text-gray-600 pb-8">
           Register
