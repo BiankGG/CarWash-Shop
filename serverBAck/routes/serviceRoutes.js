@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
+
 const {
   serviceTest,
   getAllServices,
@@ -13,8 +14,8 @@ const {
 
 
 router.get("/", serviceTest);  
-router.get("/all", getAllServices); 
 router.post("/create", createServices);
+router.get("/all", getAllServices); 
 router.delete('/:id', deleteService)
 router.put('/:id', editService)
 

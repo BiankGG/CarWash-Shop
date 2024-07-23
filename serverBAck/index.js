@@ -30,6 +30,7 @@ mongoose
 //Routes
 app.use("/user", require("./routes/authRoutes"));
 app.use("/services", require("./routes/serviceRoutes"));
+app.use("/product", require("./routes/productRoutes"));
 
 const port = 8000;
 app.listen(port, () => console.log(`Server running on port ${port}`));

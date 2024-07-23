@@ -7,31 +7,37 @@ npm react-hot-toast(Add beautiful notifications to your React app with react-hot
 npm bcrypt
 npm i jsonwebtoken
 npm i cookie-parser/// cookie parser middleware function using the given secret and options
+npm axios 
 
 Título del Proyecto: CarWash Shop -
  Servicio de lavado de coche y tambien con suscripción.
 
-Descripción: CarWash Shop es una aplicación en la cual ofrece servicios de lavados de coches bajo demanda y con suscripción mensual. La app deja a los usuarios solicitar lavados de coches desde cualquier lugar a domicilio o  lavadero de coches. Además los usuarios puedes optar por una suscripción mensual que ofrece beneficios como lavados ilimitados, descuentos en servicios adicionales o prioridad en reservas.
+Descripción: CarWash Shop es una aplicación en la cual ofrece servicios de lavados de coches bajo demanda y con suscripción mensual. La app deja a los usuarios solicitar lavados de coches desde cualquier lugar en lavadero de coches apto para ello. Además los usuarios puedes optar por una suscripción mensual que ofrece beneficios como lavados ilimitados, descuentos en servicios adicionales o prioridad en reservas.
 
 Wireframe Mid-Fi:
 
 Página de Inicio: 
--Logotipo de la aplicación
+
+-Logotipo de la aplicación ✅
 -Menu Nav (Inicio,Servicios,Suscripciones,Contacto, Login/Registro)
 -Sección de info sobre servicios
 
-Registro/Login
+Registro/Login ✅
 -Formulario a completar para la entrada con Email y contraseña.
 -Botón para envío para iniciar o registrar.
 
 Perfil Usuario:
--Información persona (nombre, email, dirección)
+-Información persona (nombre, email, dirección) 🗸
 -Historial de lavados.
 -Estado de la suscripción y opción de actualizar o cancelar.
 
 Seleccionar Servicios
--Lista de tipos de lavados con descripcion y precios.
+-Lista de tipos de lavados con descripcion y precios. 🗸
 -Opción para programar lavados( date & time)
+
+Seleccion de productos 
+-seleccion de productos para limpieza interior 
+-seleccion de productos exterior
 
 
 PAGOS-----( a al espera de antonio)
@@ -45,14 +51,18 @@ Historial
 
 Diseño de API:
 Endpoint:
------services
-Post/register ----Registro de nuevos usuarios
-Post/login    ----Autenticación de usuarios
-Get/Profile   ----Obtener detalles del perfil del usuario
----------services
-Get/Service/all   ---Obtener lista de servicios de lavado disponibles
-POST/Service/create-- crear la lista
-POST/Service/:id-- Borrar lista 
+-----LOGIN'S 
+Post/register ----Registro de nuevos usuarios  ✅
+Post/login    ----Autenticación de usuarios  ✅
+Get/Profile   ----Obtener detalles del perfil del usuario ✅
+Post/logout   -----salir del perfil ✅
+
+---------SERVICES
+Get/all   ---Obtener lista de servicios de lavado disponibles ✅
+POST/create-- crear la lista ✅
+POST/:id-- Borrar lista ✅
+POST/:id----- editar servicio ✅
+
 --------reviews
 Post/Reviews/:id   -----Crear comentario para lavado
 Get/Reviews/wash/:wash_id----Obtener todos los comentarios asociados a un lavado específico
@@ -66,8 +76,7 @@ Post/pagar -----  Procesar el pago de un servicio (Preguntar antonio)(npm stripe
 Diseño de Base de Datos: 
 MongoDB
 
-Usuarios
-
+Usuarios  ✅
 const userSchema = new mongoose.Schema({
   nombre: { type: String, required: true },
   correo: { type: String, required: true, unique: true },
@@ -76,12 +85,24 @@ const userSchema = new mongoose.Schema({
 });
 
 
-Servicios 
+Servicios ✅
 const serviceSchema = new mongoose.Schema({
+   imagen: { type: String, required: true },
   nombre: { type: String, required: true },
   descripcion: { type: String, required: true },
   precio: { type: Number, required: true }
 });
+
+Productos ✅
+const productSchema = new mongoose.Schema({
+   imagen: { type: String, required: true },
+  nombre: { type: String, required: true },
+  descripcion: { type: String, required: true },
+  precio: { type: Number, required: true }
+});
+
+
+
 
 
 Lavados
@@ -92,6 +113,7 @@ const LavadoSchema = new mongoose.Schema({
   ubicacion: { type: String, required: true },
   estado: { type: String, enum: ['pendiente', 'completado', 'cancelado'], default: 'pendiente' }
 });
+
 
 Reviews
 const reviewSchema = new mongoose.Schema({

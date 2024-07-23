@@ -19,10 +19,12 @@ const SideBar = () => {
       <SideBarIcon icon={<FiShoppingCart size="30" />} onClick={handleButtonCart} /> 
       </Link>
       <SideBarIcon icon={<FaCreditCard size="30" />} />
-      <Link to="/profile" className="sidebar-link">
+      <Link to="/Profile" className="sidebar-link">
         <SideBarIcon icon={<RiContactsLine size="30" />} />
       </Link>
+      <Link to="/Product" className="sidebar-link">
       <SideBarIcon icon={<PiSprayBottleDuotone size="30" />} />
+      </Link>
     </div>
   );
 };

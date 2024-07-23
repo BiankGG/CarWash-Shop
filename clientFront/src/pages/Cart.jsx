@@ -6,8 +6,8 @@ export default function Cart() {
   const { cart, removeCart, clearCart } = useContext(CartContext);
 
 
- const totalPrice= cart.reduce(((total, item)=> total+ item.precio),0)
-  //const totalCartPrice = cart.reduce((total, item) => total + item.precio, 0);
+ const totalPrice = cart.reduce(((total, item)=> total+ item.precio),0)
+
   //const resultado = lista.reduce(function callback(valorAnterior, valorActual)  return; /* resultado de la función callback */
  //}, valorInicial);
 
