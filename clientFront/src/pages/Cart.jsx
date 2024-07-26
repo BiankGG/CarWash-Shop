@@ -3,7 +3,7 @@ import { CartContext } from "../context/cartContext";
 
 
 export default function Cart() {
-  const { cart, removeCart, clearCart } = useContext(CartContext);
+  const { cart, removeCart, clearCart, saveHistory } = useContext(CartContext);
 
 
  const totalPrice = cart.reduce(((total, item)=> total+ item.precio),0)
@@ -54,7 +54,7 @@ export default function Cart() {
             >
               Clear Cart
             </button >
-            <button  className="py-2 px-4 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700">Buy</button>
+            <button  className="py-2 px-4 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700" onClick={saveHistory}>Buy</button>
           </div>
         </div>
       )}

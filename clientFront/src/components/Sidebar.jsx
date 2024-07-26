@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
-import { FaCreditCard } from "react-icons/fa";
+import { RiCarWashingLine } from "react-icons/ri";
 import { RiContactsLine } from "react-icons/ri";
 import { PiSprayBottleDuotone } from "react-icons/pi";
+
 import React, { useState } from "react";
 import Cart from "../pages/Cart";
 
@@ -18,7 +19,9 @@ const SideBar = () => {
      <Link to="/Cart" className="sidebar-link">
       <SideBarIcon icon={<FiShoppingCart size="30" />} onClick={handleButtonCart} /> 
       </Link>
-      <SideBarIcon icon={<FaCreditCard size="30" />} />
+      <Link to= '/WashAppointment'className="sidebar-link">
+      <SideBarIcon icon={<RiCarWashingLine size="30" />} />
+      </Link>
       <Link to="/Profile" className="sidebar-link">
         <SideBarIcon icon={<RiContactsLine size="30" />} />
       </Link>

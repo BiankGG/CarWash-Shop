@@ -31,6 +31,7 @@ mongoose
 app.use("/user", require("./routes/authRoutes"));
 app.use("/services", require("./routes/serviceRoutes"));
 app.use("/product", require("./routes/productRoutes"));
+app.use('/wash', require('./routes/washRoutes'))
 
 const port = 8000;
 app.listen(port, () => console.log(`Server running on port ${port}`));

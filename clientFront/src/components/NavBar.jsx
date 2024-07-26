@@ -18,34 +18,33 @@ export default function NavBar() {
           to="/"
           className=" text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...   text-2xl font-bold"
         >
-          Home
-        </Link>
-        <Link
-          to="/Register"
-          className=" text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...  text-2xl font-bold cursor-pointer "
-        >
-          Register
-        </Link>
-        <Link
-          to="/Login"
-          className=" text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...  text-2xl font-bold cursor-pointer"
-        >
-          Login
+         HOME
         </Link>
         <Link
           to="/Services"
           className="  text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...  text-2xl font-bold cursor-pointer"
         >
-          Services
+          SERVICES
         </Link>
         <Link
           to="/Subscription"
           className="  text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...  text-2xl font-bold cursor-pointer"
         >
-          subscription
+          SUBSCRIPTIONS
         </Link>
-  
-      
+
+        <Link
+          to="/Login"
+          className=" text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...  text-2xl font-bold cursor-pointer"
+        >
+          LOGIN
+        </Link>
+        <Link
+          to="/Register"
+          className=" text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...  text-2xl font-bold cursor-pointer "
+        >
+          REGISTER
+        </Link>
       </div>
     </nav>
   );

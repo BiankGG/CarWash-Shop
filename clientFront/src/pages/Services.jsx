@@ -63,7 +63,7 @@ export default function Services() {
           ))}
         </div>
       ) : (
-        <p className="font-extrabold text-4xl pt-32" >Please log in to see the services...</p>
+        <p className="font-extrabold text-4xl pt-32 text-red-600" >Please log in...</p>
       )}
     </div>
   );

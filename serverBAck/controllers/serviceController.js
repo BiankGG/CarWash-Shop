@@ -61,7 +61,7 @@ const editService = async (req, res) => {
     }
     res.status(200).json({ message: "service edited", editedServices });
   } catch (error) {
-    console.error("Error edited:", error);
+    console.error("error edited:", error);
   }
 };
 

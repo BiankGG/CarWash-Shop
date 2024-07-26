@@ -5,30 +5,43 @@ import { createContext, useState, useEffect } from "react";
 axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
 
+//token
 export const UserContext = createContext({});
 
 export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const fetchUserProfile = async () => {
-      try {
-        const response = await axios.get("/user/profile");
-        setUser(response.data);
-      } catch (error) {
-        console.error("Error profile:", error);
-        setUser(null);
-      }
-    };
-
-    fetchUserProfile();
+    if (!user) {
+      axios.get("/user/profile").then(({ data }) => {
+        setUser(data);
+      });
+    }
   }, []);
 
-  //login
+  //obtain profile
+  // useEffect(() => {
+  //   const fetchUserProfile = async () => {
+  //     try {
+  //       const response = await axios.get("/user/profile", {
+  //         withCredentials: true,
+  //       });
+  //       setUser(response.data);
 
-  const login = async () => {
+  //       console.log("fetched", response.data);
+  //     } catch (error) {
+  //       console.error("error profile:", error);
+  //       setUser(null);
+  //     }
+  //   };
+
+  //   fetchUserProfile();
+  // }, []);
+
+  //login
+  const login = async (credentials) => {
     try {
-      const response = await axios.post("/user/login", Credentials);
+      const response = await axios.post("/user/login", credentials);
       setUser(response.data);
     } catch (error) {
       console.error("error login", error);
