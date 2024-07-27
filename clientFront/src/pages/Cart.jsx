@@ -1,15 +1,10 @@
+
 import React, { useContext } from "react";
 import { CartContext } from "../context/cartContext";
 
-
 export default function Cart() {
   const { cart, removeCart, clearCart, saveHistory } = useContext(CartContext);
-
-
- const totalPrice = cart.reduce(((total, item)=> total+ item.precio),0)
-
-  //const resultado = lista.reduce(function callback(valorAnterior, valorActual)  return; /* resultado de la función callback */
- //}, valorInicial);
+ 
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-md mx-auto my-4 max-w-3xl flex flex-col items-center pt-32">
@@ -20,8 +15,11 @@ export default function Cart() {
         <p className="text-lg text-gray-600">Cart is empty</p>
       ) : (
         <div className="w-full">
-          {cart.map((item) => (
-            <div key={item._id} className="flex items-center mb-4 p-4 border rounded-lg">
+          {cart.map((item,index) => (
+            <div
+              key={index}
+              className="flex items-center mb-4 p-4 border rounded-lg"
+            >
               <img
                 src={item.imagen}
                 alt={item.nombre}
@@ -44,7 +42,7 @@ export default function Cart() {
           ))}
           <div className="mt-4 mb-8 text-center">
             <h3 className="text-2xl font-semibold text-blue-800">
-              Total: { totalPrice.toFixed(2)}$ $
+              Total: {cart.reduce(((total,item)=> total + item.precio),0)}$ 
             </h3>
           </div>
           <div className="flex justify-center mt-4 gap-x-8 gap-y-4 grid-cols-3">
@@ -53,8 +51,13 @@ export default function Cart() {
               onClick={clearCart}
             >
               Clear Cart
-            </button >
-            <button  className="py-2 px-4 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700" onClick={saveHistory}>Buy</button>
+            </button>
+            <button
+              className="py-2 px-4 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-700"
+              onClick={saveHistory}
+            >
+              Buy
+            </button>
           </div>
         </div>
       )}

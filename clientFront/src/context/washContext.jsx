@@ -7,17 +7,20 @@ export const WashContext = createContext();
 export function WashContextProvider({ children }) {
   const [wash, setWash] = useState([]);
   const [services, setServices] = useState([]);
+  const [userWashData, setUserWashData] = useState([]);
 
+  //call
   useEffect(() => {
     fetchWash();
-    fetchServices()
+    fetchServices();
   }, []);
 
   // obtain washes
   const fetchWash = async () => {
     try {
       const response = await axios.get("/wash");
-      setWash(response.data);
+      const washes = response.data;
+      setWash(washes);
     } catch (error) {
       console.log("error fetching wash");
     }
@@ -27,7 +30,8 @@ export function WashContextProvider({ children }) {
   const fetchServices = async () => {
     try {
       const response = await axios.get("/Services/all");
-      setServices(response.data);
+      const allServices = response.data;
+      setServices(allServices);
     } catch (error) {
       console.error("error fetching services");
     }
@@ -37,19 +41,22 @@ export function WashContextProvider({ children }) {
   const makeWash = async (dataWash) => {
     try {
       const response = await axios.post("/wash/create", dataWash);
-      setWash((prevWash) => [...prevWash, response.data]);
+      let createWash = response.data;
+      setWash((prevWash) => [...prevWash, createWash]);
     } catch (error) {
       console.error("error creating");
     }
   };
 
-  // update wash
+  // update wash---have to use it
   const updatesWash = async (id, update) => {
     try {
       const response = await axios.put(`/wash/${id}`, update);
-      setWash((prevWash) =>
-        prevWash.map((wash) => (wash._id === id ? response.data : wash))
+      let changeWash = [...wash];
+      changeWash = changeWash.map((washItem) =>
+        washItem._id === id ? response.data : washItem
       );
+      setWash(changeWash);
     } catch (error) {
       console.error("error update");
     }
@@ -59,14 +66,39 @@ export function WashContextProvider({ children }) {
   const deleteWash = async (id) => {
     try {
       await axios.delete(`/wash/${id}`);
-      setWash((prevWash) => prevWash.filter((wash) => wash._id !== id));
+      let deleteId = [...services];
+      deleteId = deleteId.filter((service) => service._id !== id);
+      setWash(deleteId);
+    } catch (error) {
+      console.log("error delete wash");
+    }
+  };
+
+  //user fetch washes :id_user
+  const userWashesData = async (userId) => {
+    try {
+      const response = await axios.get(`/wash/user/${userId}`);
+      const dataUserwash = response.data;
+      setUserWashData(dataUserwash);
     } catch (error) {
       console.log("error delete wash");
     }
   };
 
   return (
-    <WashContext.Provider value={{ wash,services, makeWash, updatesWash, deleteWash, fetchServices }}>
+    <WashContext.Provider
+      value={{
+        wash,
+        services,
+        makeWash,
+        updatesWash,
+        deleteWash,
+        fetchServices,
+        fetchWash,
+        userWashesData,
+        userWashData,
+      }}
+    >
       {children}
     </WashContext.Provider>
   );

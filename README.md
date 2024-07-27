@@ -3,26 +3,31 @@ npm mongoose
 npm express
 nom dotenv
 npm cors
-npm react-hot-toast(Add beautiful notifications to your React app with react-hot-toast)
+npm react-hot-toast (Add beautiful notifications to your React app with react-hot-toast)
 npm bcrypt
 npm i jsonwebtoken
+npm nodemon
 npm i cookie-parser/// cookie parser middleware function using the given secret and options
 npm axios 
+npm install -D tailwindcss
+
+
+
+
+
 
 Project Title: CarWash Shop - Car Washing Service with Subscription
 
-Description: CarWash Shop is an application offering on-demand car washing services as well as monthly subscriptions. The app allows users to request car washes from any location at designated car wash centers. Additionally, users can opt for a monthly subscription that provides benefits such as unlimited washes, discounts on additional services, or priority in bookings.
+Description: CarWash Shop is an application offering on-demand car washing services as well as monthly subscriptions. The app allows users to request car washes from any location at designated car wash centers. Additionally, users can opt for a monthly subscription that provides benefits such as unlimited washes, discounts on additional services.
 
 Mid-Fi Wireframe:
 
 Home Page:
-
     Application Logo ✅
     Navigation Menu (Home, Services, Subscriptions, Contact, Login/Register)
     Information section about services
 
 Registration/Login ✅
-
     Form to complete for login with Email and password.
     Button to submit for login or registration.
 
@@ -36,15 +41,14 @@ Select Services:
     Option to schedule washes (date & time)
 
 Product Selection ✅
-    Selection of products for interior cleaning 🗸
-    Selection of exterior products 🗸
+    Selection of products for interior cleaning 
+    Selection of exterior products 
 
 PAYMENTS (Awaiting Antonio)
 
-History:
-    List of previous washes and buys 🗸 
-    who performed them Reviews 
-    Date of each one 🗸 
+History:✅
+    List of previous washes and buys  
+    Date of each one  
 
 API Design:
 
@@ -61,6 +65,12 @@ Endpoints:
         POST/create -- Create a service list 🗸
         POST/:id -- Delete a service 🗸
         POST/:id ----- Edit a service 🗸
+
+     PRODUCTS✅
+        POST/Product/create-- create product 🗸
+        GET/product/all--- get all product 🗸
+        PUT/product/:id---edit product by id 🗸
+        DELETE/product/:id-- delete product by id 🗸      
 
     WASH✅
         POST/washes --- Create a wash 🗸
@@ -125,13 +135,12 @@ const reviewSchema = new mongoose.Schema({
 
 
 SUBSCRIPTION (PREGUNTAR MIGUEL)
-
-const subscriptionSchema = new Schema({
+const subscriptionSchema = new mongoose.Schema({
    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-   nombre : { type: String },
-   descipcion:
-   precio:
-   duracion:
+   service_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Service', required: true },
+   descipcion:{type: String},
+   precio: {type: Sting},
+   duracion:{type:String}, (monthly & Year)
    created_at: { type: Date, required: true, default: Date.now } (DATE?¿?¿)
 });
 

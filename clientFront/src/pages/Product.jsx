@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { UserContext } from "../context/userContext";
@@ -12,19 +13,20 @@ export default function Product() {
   const notify = () => toast("succes adding to the cart");
 
   useEffect(() => {
-    const fetchProducts = async (req, res) => {
+    const getProducts = async (req, res) => {
       try {
         const response = await axios.get("http://localhost:8000/product/all");
-        setProducts(response.data);
+        const fetchData= response.data
+        setProducts(fetchData);
       } catch (error) {
         console.error("error fetching Product:", error);
       }
     };
-    fetchProducts();
+    getProducts();
   }, []);
 
 
-  //use ternary operator
+  //use ternary operator and if not a user u cannot see it handy for user not allowed.
   return (
     <div className="pt-32">
       <h1 className="font-extrabold text-4xl text-blue-800 tracking-tight">

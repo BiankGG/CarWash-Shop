@@ -12,6 +12,12 @@ import WashAppointment from "./pages/WashAppointment"
 import { Toaster } from "react-hot-toast";
 import Profile from "./pages/Profile";
 import SideBar from "./components/Sidebar";
+import axios from 'axios';
+
+
+//backendURL--
+axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.withCredentials = true;
 
 
 function App() {

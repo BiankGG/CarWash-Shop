@@ -1,36 +1,48 @@
 import axios from "axios";
-import { createContext,useState} from "react";
-
+import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
 export function CartContextProvider({ children }) {
   const [cart, setCart] = useState([]);
-  const [saveHistoryCart, setSaveHistoryCart]=useState([])
+  const [saveHistoryCart, setSaveHistoryCart] = useState([]);
 
-  const addCart = (service) => {
-    setCart((prevCart) => [...prevCart, service]);
+  //add to cart
+  const addCart = (cart) => {
+    setCart((prevCart) => [...prevCart, cart]);
   };
 
-  const removeCart = (itemId) => {
-    setCart(cart.filter((item) => item._id !== itemId));
+  //remove id
+  const removeCart = (id) => {
+    let newCartItem = [...cart];
+    newCartItem = cart.filter((item) => item._id !== id);
+    setCart(newCartItem);
   };
   const clearCart = () => {
     setCart([]);
   };
-   
 
   //save history ?¿ localStorage
-  const saveHistory =()=>{
+  const saveHistory = () => {
     if (cart.length > 0) {
-      setSaveHistoryCart((prevHistory) => [...prevHistory, ...cart])
-        localStorage.setItem('setSaveHistoryCart', JSON.stringify(cart))
+      const save = (prevHistory) => [...prevHistory, ...cart];
+      setSaveHistoryCart(save);
+      localStorage.setItem("setSaveHistoryCart", JSON.stringify(cart));
       clearCart();
     }
-  }
+  };
 
   return (
-    <CartContext.Provider value={{ cart, addCart, removeCart, clearCart, saveHistory, saveHistoryCart }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addCart,
+        removeCart,
+        clearCart,
+        saveHistory,
+        saveHistoryCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

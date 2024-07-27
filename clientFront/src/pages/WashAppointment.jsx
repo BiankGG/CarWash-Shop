@@ -1,15 +1,24 @@
 import React, { useContext, useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { WashContext } from "../context/washContext";
+import { UserContext } from "../context/userContext";
 
 export default function WashAppointment() {
   const { services, makeWash } = useContext(WashContext);
+  const { user } = useContext(UserContext);
   const [userId, setUserId] = useState("");
   const [choiceService, setChoiceService] = useState("");
   const [date, setDate] = useState("");
   const [location, setLocation] = useState("");
-  const [status] = useState("pending");
-  
+  const [status, setStatus] = useState("pending");
+
+  //userId logged fill in with id,disable input
+  useEffect(() => {
+    if (user) {
+      const userlogged = user._id;
+      setUserId(userlogged);
+    }
+  }, [user]);
 
   //handle submision
   const handleSubmit = async (e) => {
@@ -25,14 +34,15 @@ export default function WashAppointment() {
     };
 
     await ScheduleWash(washData);
+    if (washData) {
+      toast.success("you made an appointment");
+    }
   };
 
   // Schedule wash f
   const ScheduleWash = async (washData) => {
     try {
       await makeWash(washData);
-      setUserId("");
-      setChoiceService("");
       setDate("");
       setLocation("");
     } catch (error) {
@@ -51,7 +61,7 @@ export default function WashAppointment() {
           <input
             type="text"
             value={userId}
-            onChange={(e) => setUserId(e.target.value)}
+            disabled
             className="w-full px-4 py-2 border rounded-lg"
           />
         </div>
@@ -89,7 +99,8 @@ export default function WashAppointment() {
         </div>
         <button
           type="submit"
-          className="py-2 px-4 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+          className="py-2 px-4 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+        >
           Schedule Wash Appointment
         </button>
       </form>
