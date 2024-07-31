@@ -5,7 +5,7 @@ const subTest = (req, res) => {
   res.send("endpoint Working");
 };
 
-//create subs
+//create subs// expired date?¿?¿
 const createSubscription = async (req, res) => {
   const {
     user_id,

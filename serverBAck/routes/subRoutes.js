@@ -11,6 +11,8 @@ const {
   specificSubscripcionId,
 } = require("../controllers/subsController");
 
+
+//router auth endpoint
 router.get("/", subTest);
 router.post("/create", createSubscription);
 router.get("/getAll", getMySubs);

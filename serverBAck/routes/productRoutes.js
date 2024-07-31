@@ -3,7 +3,7 @@ const router = express.Router()
 const { productTest, createProduct,  getAllProduct, editProduct, deleteProduct } = require('../controllers/productController');
 
 
-
+//router auth endpoint
 router.get("/", productTest);  
 router.post("/create", createProduct);
 router.get("/all",  getAllProduct)

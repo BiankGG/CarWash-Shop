@@ -42,7 +42,6 @@ export default function Register() {
         <div className="bg-white  p-8 rounded-lg shadow-md">
           <div>
             <label className="font-extrabold text-2xl " htmlFor="name">
-              {" "}
               Name
             </label>
             <input
@@ -56,7 +55,6 @@ export default function Register() {
           </div>
           <div className="mt-4">
             <label className="font-extrabold text-2xl" htmlFor="email">
-              {" "}
               Email
             </label>
             <input
@@ -70,7 +68,6 @@ export default function Register() {
           </div>
           <div className="mt-4">
             <label className="font-extrabold text-2xl" htmlFor="password">
-              {" "}
               Password
             </label>
             <input
@@ -82,15 +79,15 @@ export default function Register() {
               onChange={(e) => setData({ ...data, password: e.target.value })}
             />
           </div>
-        
-        <div className="flex items-center justify-center mt-8">
-          <button
-            type="submit"
-            className="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-purple-800 py-4 text-lg px-10"
-          >
-            Submit
-          </button>
-        </div>
+
+          <div className="flex items-center justify-center mt-8">
+            <button
+              type="submit"
+              className="flex items-center justify-center  border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-purple-800 py-4 text-lg px-10"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </form>
     </div>

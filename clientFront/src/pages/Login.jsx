@@ -5,16 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
 
-
-
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useContext(UserContext);
   const [data, setData] = useState({
     email: "",
     password: "",
-  })
-
+  });
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -56,7 +53,6 @@ export default function Login() {
             className="text-white font-extrabold text-2xl"
             htmlFor="password"
           >
-            {" "}
             Password
           </label>
           <input

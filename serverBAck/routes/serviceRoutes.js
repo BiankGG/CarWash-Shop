@@ -12,7 +12,7 @@ const {
 
 
 
-
+//router auth endpoint
 router.get("/", serviceTest);  
 router.post("/create", createServices);
 router.get("/all", getAllServices); 
