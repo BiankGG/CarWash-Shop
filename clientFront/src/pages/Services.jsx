@@ -13,7 +13,7 @@ export default function Services() {
 
   //download data api and actualice
   useEffect(() => {
-    const fetchServices = async (req, res) => {
+    const fetchServices = async () => {
       try {
         const response = await axios.get("/services/all");
         let data = response.data;
