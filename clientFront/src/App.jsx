@@ -9,6 +9,7 @@ import Subscription from "./pages/Subscription";
 import Cart from "./pages/Cart";
 import Product from "./pages/Product";
 import WashAppointment from "./pages/WashAppointment"
+import WhoWeAre from "./pages/WhoWeAre"
 import { Toaster } from "react-hot-toast";
 import Profile from "./pages/Profile";
 import SideBar from "./components/Sidebar";
@@ -36,6 +37,7 @@ function App() {
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Product" element={<Product />} />
         <Route path="/WashAppointment" element={<WashAppointment />} />
+        <Route path= "/WhoWeAre" element={<WhoWeAre />} />
         
       </Routes>
     </div>

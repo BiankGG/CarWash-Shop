@@ -1,20 +1,22 @@
 import React, { useContext, useEffect } from "react";
 import { UserContext } from "../context/userContext";
 import { CartContext } from "../context/cartContext";
-import axios from "axios"; //handleLogout
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { WashContext } from "../context/washContext";
+
 
 export default function Profile() {
   const { user, setUser } = useContext(UserContext);
   const { saveHistoryCart } = useContext(CartContext);
   const { userWashesData, userWashData, deleteWash } = useContext(WashContext);
 
+
   //manage go home when logout
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
+    if (user && user._id) {
       userWashesData(user._id);
     }
   }, [user, userWashesData]);
@@ -43,7 +45,7 @@ export default function Profile() {
               <p className="text-xl text-blue-600">ID: {user._id}</p>
               <h3 className="text-xl font-semibold mt-4">History buy's:</h3>
               <ul className="flex flex-col items-center mb-4 p-4 border rounded-lg">
-                {saveHistoryCart && saveHistoryCart.length > 0 ? (
+                {saveHistoryCart.length > 0 ? (
                   saveHistoryCart.map((item, index) => (
                     <div
                       key={index}
@@ -71,7 +73,7 @@ export default function Profile() {
 
               <h3 className="text-xl font-semibold mt-4">Wash Appointments</h3>
               <ul className="flex flex-col items-center mb-4 p-4 border rounded-lg">
-                {userWashData && userWashData.length > 0 ? (
+                {userWashData.length > 0 ? (
                   userWashData.map((wash) => (
                     <div
                       key={wash._id}
@@ -102,7 +104,6 @@ export default function Profile() {
                 )}
               </ul>
             </div>
-
             <button
               className="mt-4 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-purple-800 md:py-4 md:text-lg md:px-10"
               onClick={handleLogout}

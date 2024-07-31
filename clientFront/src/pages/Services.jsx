@@ -11,8 +11,10 @@ export default function Services() {
 
   const notify = () => toast("succes adding to the cart");
 
+  
+//download data api and actualice
   useEffect(() => {
-    const fetchServices = async (req,res) => {
+    const fetchServices = async (req, res) => {
       try {
         const response = await axios.get("http://localhost:8000/services/all");
         setServices(response.data);
@@ -24,7 +26,6 @@ export default function Services() {
     fetchServices();
   }, []);
 
-
   //using ternary operator
   return (
     <div className="pt-32">
@@ -33,27 +34,27 @@ export default function Services() {
       </h1>
       {user ? (
         <div className="flex flex-wrap gap-4">
-          {services.map((service) => (
+          {services.map((item, index) => (
             <div
-              key={service._id}
+              key={index}
               className="bg-white p-4 rounded-lg shadow-md flex flex-col w-full sm:w-1/2 lg:w-1/4 mx-auto my-4 max-w-sm"
             >
               <div className="w-full h-40 overflow-hidden rounded-lg mb-4">
                 <img
-                  src={service.imagen}
-                  alt={service.nombre}
+                  src={item.imagen}
+                  alt={item.nombre}
                   className="w-full h-full object-contain"
                 />
               </div>
-              <h2 className="text-xl font-semibold">{service.nombre}</h2>
-              <p className="text-gray-600">{service.descripcion}</p>
+              <h2 className="text-xl font-semibold">{item.nombre}</h2>
+              <p className="text-gray-600">{item.descripcion}</p>
               <p className="text-lg font-bold text-green-600">
-                Price: ${service.precio}
+                Price: ${item.precio}
               </p>
               <button
                 className="mt-auto py-2 px-4 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
                 onClick={() => {
-                  addCart(service);
+                  addCart(item);
                   notify();
                 }}
               >
@@ -63,7 +64,9 @@ export default function Services() {
           ))}
         </div>
       ) : (
-        <p className="font-extrabold text-4xl pt-32 text-red-600" >Please log in...</p>
+        <p className="font-extrabold text-4xl pt-32 text-red-600">
+          Please log in...
+        </p>
       )}
     </div>
   );

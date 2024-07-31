@@ -141,6 +141,6 @@ const subscriptionSchema = new mongoose.Schema({
    descipcion:{type: String},
    precio: {type: Sting},
    duracion:{type:String}, (monthly & Year)
-   created_at: { type: Date, required: true, default: Date.now } (DATE?¿?¿)
+   dia: { type: Date, required: true, default: Date.now } (DATE?¿?¿)
 });
 

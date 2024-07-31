@@ -45,6 +45,12 @@ export default function NavBar() {
         >
           REGISTER
         </Link>
+        <Link
+          to="/WhoWeAre"
+          className=" text-white rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...  text-2xl font-bold cursor-pointer "
+        >
+         OUR COMPANY
+        </Link>
       </div>
     </nav>
   );

@@ -89,7 +89,7 @@ export default function WashAppointment() {
           />
         </div>
         <div className="mb-4 w-80">
-          <label className="block  text-blue-700">LOCATION</label>
+          <label className="block text-blue-700">LOCATION</label>
           <input
             type="text"
             value={location}

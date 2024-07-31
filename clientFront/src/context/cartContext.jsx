@@ -8,8 +8,8 @@ export function CartContextProvider({ children }) {
   const [saveHistoryCart, setSaveHistoryCart] = useState([]);
 
   //add to cart
-  const addCart = (cart) => {
-    setCart((prevCart) => [...prevCart, cart]);
+  const addCart = (item) => {
+    setCart((prevCart) => [...prevCart, item]);
   };
 
   //remove id
@@ -27,7 +27,7 @@ export function CartContextProvider({ children }) {
     if (cart.length > 0) {
       const save = (prevHistory) => [...prevHistory, ...cart];
       setSaveHistoryCart(save);
-      localStorage.setItem("setSaveHistoryCart", JSON.stringify(cart));
+      localStorage.setItem("saveHistoryCart", JSON.stringify(cart));
       clearCart();
     }
   };
