@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: "https://carwash-shop-1.onrender.com",
   })
 );
 
@@ -31,8 +31,8 @@ mongoose
 app.use("/user", require("./routes/authRoutes"));
 app.use("/services", require("./routes/serviceRoutes"));
 app.use("/product", require("./routes/productRoutes"));
-app.use('/wash', require('./routes/washRoutes'))
-app.use('/subscription', require('./routes/subRoutes'))
+app.use("/wash", require("./routes/washRoutes"));
+app.use("/subscription", require("./routes/subRoutes"));
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
