@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
     credentials: true,
-    origin: "https://carwash-shop-1.onrender.com",
+    origin: "*",
   })
 );
 
@@ -34,5 +34,5 @@ app.use("/product", require("./routes/productRoutes"));
 app.use("/wash", require("./routes/washRoutes"));
 app.use("/subscription", require("./routes/subRoutes"));
 
-const port = process.env.PORT || 8000;
+const port = 8000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
