@@ -14,7 +14,7 @@ export default function Product() {
   useEffect(() => {
     const getProducts = async (req, res) => {
       try {
-        const response = await axios.get("http://localhost:8000/product/all");
+        const response = await axios.get("/product");
         const fetchData = response.data;
         setProducts(fetchData);
       } catch (error) {

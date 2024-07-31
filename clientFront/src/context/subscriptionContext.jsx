@@ -13,7 +13,7 @@ export function SubscriptionContextProvider({ children }) {
 
   const fetchSubs = async () => {
     try {
-      const response = await axios.get("/subscription/getAll");
+      const response = await axios.get("/subscription");
       let data = response.data;
       setSubs(data);
     } catch (error) {

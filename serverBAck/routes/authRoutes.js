@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const {
-  test,
   registerUser,
   loginUser,
   getProfile,
@@ -11,7 +10,6 @@ const verifyToken= require("../middleware/verifyToken")
 
 
 //router auth endpoint
-router.get("/", test);
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.post("/logout",verifyToken, logoutUser);

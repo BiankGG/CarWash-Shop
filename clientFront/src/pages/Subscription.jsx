@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
-import { SubscriptionContext } from "../context/subscriptionContext"; ;
+import { SubscriptionContext } from "../context/subscriptionContext";
 import { UserContext } from "../context/userContext";
 import { CartContext } from "../context/cartContext";
 

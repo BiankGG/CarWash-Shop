@@ -1,10 +1,6 @@
 const Wash = require("../models/wash");
 const User = require("../models/user");
 
-//test
-const washTest = (req, res) => {
-  res.send("endPoint Working");
-};
 
 //create a wash
 const createWash = async (req, res) => {
@@ -85,7 +81,6 @@ const specificUserWash = async (req, res) => {
 };
 
 module.exports = {
-  washTest,
   createWash,
   getAllWashes,
   deleteWashes,

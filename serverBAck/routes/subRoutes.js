@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const {
-  subTest,
   createSubscription,
   getMySubs,
   deleteSubs,
@@ -13,9 +12,8 @@ const {
 
 
 //router auth endpoint
-router.get("/", subTest);
 router.post("/create", createSubscription);
-router.get("/getAll", getMySubs);
+router.get("/", getMySubs);
 router.delete("/:id", deleteSubs);
 router.put('/:id', updateSubs)
 router.get('/user/:id',specificUserSubs)

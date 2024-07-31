@@ -3,20 +3,16 @@ const router = express.Router();
 const cors = require("cors");
 
 const {
-  serviceTest,
   getAllServices,
   createServices,
   deleteService,
-  editService
+  editService,
 } = require("../controllers/serviceController");
 
-
-
 //router auth endpoint
-router.get("/", serviceTest);  
 router.post("/create", createServices);
-router.get("/all", getAllServices); 
-router.delete('/:id', deleteService)
-router.put('/:id', editService)
+router.get("/", getAllServices);
+router.delete("/:id", deleteService);
+router.put("/:id", editService);
 
 module.exports = router;

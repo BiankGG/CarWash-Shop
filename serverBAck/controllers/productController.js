@@ -1,13 +1,7 @@
 const Product = require("../models/products");
 const express = require("express");
 
-//test working
-const productTest = (req, res) => {
-  res.send("endpoint working");
-};
-
 //create each product
-
 const createProduct = async (req, res) => {
   const { imagen, nombre, descripcion, precio } = req.body;
   try {
@@ -68,4 +62,4 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-module.exports = { productTest, createProduct, getAllProduct, editProduct,deleteProduct };
+module.exports = { createProduct, getAllProduct, editProduct,deleteProduct };

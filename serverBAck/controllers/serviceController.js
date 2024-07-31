@@ -1,10 +1,7 @@
 const Service = require("../models/service");
 const express = require("express");
 
-//Test working
-const serviceTest = (req, res) => {
-  res.send("endpoint working");
-};
+
 
 //create each service
 const createServices = async (req, res) => {
@@ -66,7 +63,7 @@ const editService = async (req, res) => {
 };
 
 module.exports = {
-  serviceTest,
+
   getAllServices,
   createServices,
   deleteService,

@@ -1,9 +1,6 @@
 const Subscription = require("../models/subscription");
 const User = require("../models/user");
 
-const subTest = (req, res) => {
-  res.send("endpoint Working");
-};
 
 //create subs// expired date?¿?¿
 const createSubscription = async (req, res) => {
@@ -115,7 +112,6 @@ const specificSubscripcionId = async (req, res) => {
 
 
 module.exports = {
-  subTest,
   createSubscription,
   getMySubs,
   deleteSubs,

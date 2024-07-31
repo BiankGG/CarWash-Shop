@@ -29,7 +29,7 @@ export function WashContextProvider({ children }) {
   //obtain services for eleccion if not it will not work because its not fetching any services.
   const fetchServices = async () => {
     try {
-      const response = await axios.get("/Services/all");
+      const response = await axios.get("/Services");
       const allServices = response.data;
       setServices(allServices);
     } catch (error) {

@@ -1,12 +1,12 @@
 const express = require ("express");
 const router = express.Router();
-const{ washTest, createWash, getAllWashes, deleteWashes,updateWash, specificUserWash }= require('../controllers/washController')
+const{ createWash, getAllWashes, deleteWashes,updateWash, specificUserWash }= require('../controllers/washController')
 
 
 //router auth endpoint
- router.get("/", washTest);
+
  router.post('/create', createWash);
- router.get("/all",  getAllWashes);
+ router.get("/",  getAllWashes);
  router.delete('/:id', deleteWashes)
  router.put("/:id", updateWash  )
  router.get("/user/:id", specificUserWash)

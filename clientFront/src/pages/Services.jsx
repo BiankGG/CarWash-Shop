@@ -15,7 +15,7 @@ export default function Services() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get("/services/all");
+        const response = await axios.get("/services");
         let data = response.data;
         setServices(data);
       } catch (error) {

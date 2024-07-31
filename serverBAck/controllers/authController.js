@@ -2,9 +2,7 @@ const User = require("../models/user");
 const { hashPassword, comparePassword } = require("../bcrypt/auth");
 const jwt = require("jsonwebtoken");
 
-const test = (req, res) => {
-  res.json("is it working");
-};
+
 
 // Register endpoint
 const registerUser = async (req, res) => {
@@ -78,7 +76,6 @@ const getProfile = (req, res) => {
 };
 
 module.exports = {
-  test,
   registerUser,
   loginUser,
   getProfile,
