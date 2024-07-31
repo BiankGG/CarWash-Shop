@@ -10,9 +10,11 @@ export function UserContextProvider({ children }) {
 
   useEffect(() => {
     if (!user) {
-      axios.get("/user/profile").then(({ data }) => {
-        setUser(data);
-      });
+      axios
+        .get(`${import.meta.env.VITE_HOST}/user/profile`)
+        .then(({ data }) => {
+          setUser(data);
+        });
     }
   }, [user]);
 
@@ -23,7 +25,10 @@ export function UserContextProvider({ children }) {
       return;
     }
     try {
-      const response = await axios.post("/user/login", credentials);
+      const response = await axios.post(
+        `${import.meta.env.VITE_HOST}/user/login`,
+        credentials
+      );
       const loginUser = response.data;
       setUser(loginUser);
     } catch (error) {
@@ -35,7 +40,7 @@ export function UserContextProvider({ children }) {
   //Logout
   const logout = async () => {
     try {
-      await axios.post("/user/logout");
+      await axios.post(`${import.meta.env.VITE_HOST}/user/logout`);
       setUser("");
     } catch (error) {
       console.error("error logout:", error);

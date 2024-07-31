@@ -16,11 +16,14 @@ export default function Register() {
     //destructure data connect endpoint with backend
     const { name, email, password } = data;
     try {
-      const { data } = await axios.post("/user/register", {
-        name,
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_HOST}/user/register`,
+        {
+          name,
+          email,
+          password,
+        }
+      );
       if (data.error) {
         toast.error(data.error);
       } else {

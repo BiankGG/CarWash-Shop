@@ -15,7 +15,7 @@ export default function Services() {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await axios.get("/services");
+        const response = await axios.get(`${import.meta.env.VITE_HOST}/services`);
         let data = response.data;
         setServices(data);
       } catch (error) {

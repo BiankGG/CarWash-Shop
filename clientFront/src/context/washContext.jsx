@@ -18,7 +18,7 @@ export function WashContextProvider({ children }) {
   // obtain washes
   const fetchWash = async () => {
     try {
-      const response = await axios.get("/wash");
+      const response = await axios.get(`${import.meta.env.VITE_HOST}/wash`);
       const washes = response.data;
       setWash(washes);
     } catch (error) {
@@ -29,7 +29,7 @@ export function WashContextProvider({ children }) {
   //obtain services for eleccion if not it will not work because its not fetching any services.
   const fetchServices = async () => {
     try {
-      const response = await axios.get("/Services");
+      const response = await axios.get(`${import.meta.env.VITE_HOST}/Services`);
       const allServices = response.data;
       setServices(allServices);
     } catch (error) {
@@ -40,7 +40,10 @@ export function WashContextProvider({ children }) {
   // create wash
   const makeWash = async (dataWash) => {
     try {
-      const response = await axios.post("/wash/create", dataWash);
+      const response = await axios.post(
+        `${import.meta.env.VITE_HOST}/wash/create`,
+        dataWash
+      );
       let createWash = response.data;
       setWash((prevWash) => [...prevWash, createWash]);
     } catch (error) {
@@ -51,7 +54,10 @@ export function WashContextProvider({ children }) {
   // update wash---have to use it
   const updatesWash = async (id, update) => {
     try {
-      const response = await axios.put(`/wash/${id}`, update);
+      const response = await axios.put(
+        `${import.meta.env.VITE_HOST}/wash/${id}`,
+        update
+      );
       let changeWash = [...wash];
       changeWash = changeWash.map((washItem) =>
         washItem._id === id ? response.data : washItem
@@ -65,7 +71,7 @@ export function WashContextProvider({ children }) {
   // delete wash
   const deleteWash = async (id) => {
     try {
-      await axios.delete(`/wash/${id}`);
+      await axios.delete(`${import.meta.env.VITE_HOST}/wash/${id}`);
       let deleteId = [...services];
       deleteId = deleteId.filter((service) => service._id !== id);
       setWash(deleteId);
@@ -74,16 +80,15 @@ export function WashContextProvider({ children }) {
     }
   };
 
-
-
-
   const userWashesData = async (userId) => {
     if (!userId) {
       console.error("userId is undefined or null");
       return;
     }
     try {
-      const response = await axios.get(`/wash/user/${userId}`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_HOST}/wash/user/${userId}`
+      );
       setUserWashData(response.data);
     } catch (error) {
       console.error("error fetching user washes", error);

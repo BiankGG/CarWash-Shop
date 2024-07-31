@@ -14,7 +14,9 @@ export default function Product() {
   useEffect(() => {
     const getProducts = async (req, res) => {
       try {
-        const response = await axios.get("/product");
+        const response = await axios.get(
+          `${import.meta.env.VITE_HOST}/product`
+        );
         const fetchData = response.data;
         setProducts(fetchData);
       } catch (error) {

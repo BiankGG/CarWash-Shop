@@ -8,6 +8,7 @@ import { CartContextProvider } from "./context/cartContext";
 import { WashContextProvider } from "./context/washContext.jsx";
 import { SubscriptionContextProvider } from "./context/subscriptionContext.jsx";
 
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router>

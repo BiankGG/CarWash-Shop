@@ -5,12 +5,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { WashContext } from "../context/washContext";
 
-
 export default function Profile() {
   const { user, setUser } = useContext(UserContext);
   const { saveHistoryCart } = useContext(CartContext);
   const { userWashesData, userWashData, deleteWash } = useContext(WashContext);
-
 
   //manage go home when logout
   const navigate = useNavigate();
@@ -23,7 +21,7 @@ export default function Profile() {
 
   const handleLogout = async () => {
     try {
-      await axios.post("/user/logout");
+      await axios.post(`${import.meta.env.VITE_HOST}/user/logout`);
       setUser("");
       navigate("/");
     } catch (error) {

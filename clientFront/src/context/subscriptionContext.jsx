@@ -13,7 +13,9 @@ export function SubscriptionContextProvider({ children }) {
 
   const fetchSubs = async () => {
     try {
-      const response = await axios.get("/subscription");
+      const response = await axios.get(
+        `${import.meta.env.VITE_HOST}/subscription`
+      );
       let data = response.data;
       setSubs(data);
     } catch (error) {
@@ -23,7 +25,9 @@ export function SubscriptionContextProvider({ children }) {
 
   const fetchSpecificSub = async (id) => {
     try {
-      const response = await axios.get(`/subscription/${id}`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_HOST}/subscription/${id}`
+      );
       let data = response.data;
       setSpecificSub(data);
     } catch (error) {
