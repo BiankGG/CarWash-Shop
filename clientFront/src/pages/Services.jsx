@@ -11,13 +11,13 @@ export default function Services() {
 
   const notify = () => toast("succes adding to the cart");
 
-  
-//download data api and actualice
+  //download data api and actualice
   useEffect(() => {
     const fetchServices = async (req, res) => {
       try {
-        const response = await axios.get("http://localhost:8000/services/all");
-        setServices(response.data);
+        const response = await axios.get("/services/all");
+        let data = response.data;
+        setServices(data);
       } catch (error) {
         console.error("error fetching services:", error);
       }

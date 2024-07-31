@@ -74,16 +74,7 @@ export function WashContextProvider({ children }) {
     }
   };
 
-  //user fetch washes :id_user y muestre en profile
-  // const userWashesData = async (userid) => {
-  //   try {
-  //     const response = await axios.get(`/wash/user/${userid}`);
-  //     const dataUserWash = response.data;
-  //     setUserWashData(dataUserWash);
-  //   } catch (error) {
-  //     console.log("error delete wash");
-  //   }
-  // };
+
 
 
   const userWashesData = async (userId) => {

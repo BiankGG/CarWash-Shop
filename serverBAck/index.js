@@ -17,22 +17,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(
   cors({
     credentials: true,
-    origin: "*",
+    origin: "http://localhost:5173",
   })
 );
 
 //database conexión
 mongoose
   .connect(process.env.MONGO_URL)
-  .then(() => console.log("Mongo Connected"))
-  .catch((err) => console.log("Mongo not connected", err));
+  .then(() => console.log("mongo Connected"))
+  .catch((err) => console.log("mongo not connected", err));
 
 //Routes
 app.use("/user", require("./routes/authRoutes"));
 app.use("/services", require("./routes/serviceRoutes"));
 app.use("/product", require("./routes/productRoutes"));
-app.use("/wash", require("./routes/washRoutes"));
-app.use("/subscription", require("./routes/subRoutes"));
+app.use('/wash', require('./routes/washRoutes'))
+app.use('/subscription', require('./routes/subRoutes'))
 
 const port = 8000;
 app.listen(port, () => console.log(`Server running on port ${port}`));

@@ -18,12 +18,3 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-  body {
-      background-size: contain;
-  }
-
-  .sidebar-icon {
-      @apply h-12 w-12; 
-  }
-}

@@ -14,7 +14,7 @@ export function UserContextProvider({ children }) {
         setUser(data);
       });
     }
-  }, []);
+  }, [user]);
 
   //login//toast for logged already
   const login = async (credentials) => {
