@@ -1,11 +1,19 @@
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
 export function CartContextProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [saveHistoryCart, setSaveHistoryCart] = useState([]);
+
+  //save history new update
+  useEffect(() => {
+    const savedHistory = localStorage.getItem("saveHistoryCart");
+    if (savedHistory) {
+      setSaveHistoryCart(JSON.parse(savedHistory));
+    }
+  }, []);
 
   //add to cart
   const addCart = (item) => {
@@ -25,9 +33,9 @@ export function CartContextProvider({ children }) {
   //save history ?¿ localStorage
   const saveHistory = () => {
     if (cart.length > 0) {
-      const save = (prevHistory) => [...prevHistory, ...cart];
-      setSaveHistoryCart(save);
-      localStorage.setItem("saveHistoryCart", JSON.stringify(cart));
+      const saveNewHistory = (prevHistory) => [...prevHistory, ...cart];
+      setSaveHistoryCart(saveNewHistory);
+      localStorage.setItem("saveHistoryCart", JSON.stringify(saveNewHistory));
       clearCart();
     }
   };
