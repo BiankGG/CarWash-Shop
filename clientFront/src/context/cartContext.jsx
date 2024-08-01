@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState,useEffect } from "react";
 
 export const CartContext = createContext();
 
@@ -7,13 +7,7 @@ export function CartContextProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [saveHistoryCart, setSaveHistoryCart] = useState([]);
 
-  //save history new update
-  useEffect(() => {
-    const savedHistory = localStorage.getItem("saveHistoryCart");
-    if (savedHistory) {
-      setSaveHistoryCart(JSON.parse(savedHistory));
-    }
-  }, []);
+
 
   //add to cart
   const addCart = (item) => {
