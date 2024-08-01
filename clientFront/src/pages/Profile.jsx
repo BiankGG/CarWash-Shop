@@ -21,7 +21,10 @@ export default function Profile() {
 
   const handleLogout = async () => {
     try {
-      await axios.post(`${import.meta.env.VITE_HOST}/user/logout`);
+      const response = await axios.post(
+        `${import.meta.env.VITE_HOST}/user/logout`
+      );
+      console.log("logout profile working?", response);
       setUser("");
       navigate("/");
     } catch (error) {
