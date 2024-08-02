@@ -80,6 +80,7 @@ export function WashContextProvider({ children }) {
     }
   };
 
+  //find
   const userWashesData = async (userId) => {
     if (!userId) {
       console.error("userId is undefined or null");

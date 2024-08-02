@@ -10,10 +10,12 @@ import Cart from "./pages/Cart";
 import Product from "./pages/Product";
 import WashAppointment from "./pages/WashAppointment"
 import WhoWeAre from "./pages/WhoWeAre"
+import Review from "./pages/Review"
 import { Toaster } from "react-hot-toast";
 import Profile from "./pages/Profile";
 import SideBar from "./components/Sidebar";
 import axios from 'axios';
+
 
 
 //backendURL--
@@ -38,6 +40,8 @@ function App() {
         <Route path="/Product" element={<Product />} />
         <Route path="/WashAppointment" element={<WashAppointment />} />
         <Route path= "/WhoWeAre" element={<WhoWeAre />} />
+        <Route path= "/review" element={<Review />} />
+         
         
       </Routes>
     </div>

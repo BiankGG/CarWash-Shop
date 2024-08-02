@@ -2,7 +2,6 @@ import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 
-//token
 export const UserContext = createContext({});
 
 export function UserContextProvider({ children }) {

@@ -3,6 +3,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { RiCarWashingLine } from "react-icons/ri";
 import { RiContactsLine } from "react-icons/ri";
 import { PiSprayBottleDuotone } from "react-icons/pi";
+import { GoCodeReview } from "react-icons/go";
 
 import React, { useState } from "react";
 import Cart from "../pages/Cart";
@@ -27,6 +28,9 @@ const SideBar = () => {
       </Link>
       <Link to="/Product" className="sidebar-link">
       <SideBarIcon icon={<PiSprayBottleDuotone size="30" />} />
+      </Link>
+      <Link to="/review" className="sidebar-link">
+      <SideBarIcon icon={<GoCodeReview size="30" />} />
       </Link>
     </div>
   );

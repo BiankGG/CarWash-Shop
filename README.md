@@ -80,11 +80,11 @@ Endpoints:
         DELETE/washes/:id --- Delete by ID 🗸
 
     REVIEWS
-        POST/Reviews/:id ----- Create a review for a wash
-        GET/Reviews/wash/:wash_id ---- Get all reviews associated with a specific wash
-        PUT/Reviews/:id ---- Update an existing review by ID
+        POST/create----- Create a review for a wash
+        GET/:id ---- Get all reviews 
+        PUT/:id ---- Update an existing review by ID
         DELETE/Reviews/:id -- Delete an existing review by ID
-        POST/pay ----- Process payment for a service (Ask Antonio) (npm stripe??)
+        
 
 Database Design MongoDB:
 
@@ -124,17 +124,19 @@ const LavadoSchema = new mongoose.Schema({
 });
 
 
-REVIEWS
+REVIEWS✅
 const reviewSchema = new mongoose.Schema({
-  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  wash_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Wash', required: true },
+ user_name: {
+    type: String,
+    required: true,
+  },
   comentario: { type: String, required: true },
-  rating: { type: Number, required: true, min: 1, max: 5 },
-  fecha: { type: Date, default: Date.now }
+  rating: { type: Number, required: true},
+  fecha: { type: Date, default: Date.now },
 });
 
 
-SUBSCRIPTION (PREGUNTAR MIGUEL)
+SUBSCRIPTION (No terminada)
 const subscriptionSchema = new mongoose.Schema({
    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
    service_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Service', required: true },

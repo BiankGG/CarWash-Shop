@@ -33,6 +33,7 @@ app.use("/services", require("./routes/serviceRoutes"));
 app.use("/product", require("./routes/productRoutes"));
 app.use("/wash", require("./routes/washRoutes"));
 app.use("/subscription", require("./routes/subRoutes"));
+app.use('/review', require("./routes/reviewRoute"))
 
 const port = 8000;
 app.listen(port, () => console.log(`Server running on port ${port}`));

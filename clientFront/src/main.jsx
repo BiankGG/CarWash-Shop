@@ -7,7 +7,7 @@ import { UserContextProvider } from "./context/userContext";
 import { CartContextProvider } from "./context/cartContext";
 import { WashContextProvider } from "./context/washContext.jsx";
 import { SubscriptionContextProvider } from "./context/subscriptionContext.jsx";
-
+import { ReviewContextProvider } from "./context/reviewContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -16,7 +16,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <CartContextProvider>
           <WashContextProvider>
             <SubscriptionContextProvider>
+              <ReviewContextProvider>
               <App />
+              </ReviewContextProvider>
             </SubscriptionContextProvider>
           </WashContextProvider>
         </CartContextProvider>
